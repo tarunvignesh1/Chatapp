@@ -1,24 +1,22 @@
-#include <SFML/Graphics.hpp>
+#include <imgui.h>
+#include <iostream>
 
-int main()
-{
-    sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
-    sf::CircleShape shape(100.f);
-    shape.setFillColor(sf::Color::Green);
+int main() {
 
-    while (window.isOpen())
-    {
-        sf::Event event;
-        while (window.pollEvent(event))
-        {
-            if (event.type == sf::Event::Closed)
-                window.close();
-        }
+	ImGui::Text("hello Wrold 111");
 
-        window.clear();
-        window.draw(shape);
-        window.display();
-    }
+	float fu = 0;
+	char buf[] = "Werked1";
 
-    return 0;
+	if (ImGui::Button("OK")) {
+
+		std::cout << "worked" << std::endl;
+	}
+
+	ImGui::InputText("string", buf, 256);
+	ImGui::SliderFloat("float", &fu, 0.0f, 0.1f);
+
+	return 0;
+	system("pause");
+
 }
